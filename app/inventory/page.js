@@ -1,6 +1,8 @@
 'use client';
 import React, { useEffect, useState } from 'react';
 import Headers from '../components/Headers/page';
+import { useRouter } from 'next/navigation';
+const router =  useRouter()
 const Page = () => {
     const initialFormState = {
         name: '',
@@ -15,7 +17,15 @@ const Page = () => {
     const [loading, setLoading] = useState(false);
 const [product,displayproduct] = useState('')
     const addProduct = async (e) => {
+        const token = localStorage.getItem('token')
         e.preventDefault();
+        useEffect(()=>{
+            if(!token){
+             router.push('/Login')
+            }
+            
+
+        },[])
 
         try {
             const response = await fetch('/apis/mongo', {
