@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Headers = () => {
+const Headers = ({logout}) => {
   return (
     <div>
         <header className="text-gray-600 body-font">
@@ -12,9 +12,17 @@ const Headers = () => {
       <span className="ml-3 text-xl">Inventory Management</span>
     </a>
     <nav className="md:ml-auto flex flex-wrap items-center text-base justify-center">
+
     </nav>
+    <button class="flex   text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg my-1" onClick={logout}>Logout</button>
+
+
   </div>
+
+  
 </header>
+
+
       
     </div>
   )
