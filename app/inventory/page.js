@@ -2,8 +2,9 @@
 import React, { useEffect, useState } from 'react';
 import Headers from '../components/Headers/page';
 import { useRouter } from 'next/navigation';
-const router =  useRouter()
 const Page = () => {
+    const router =  useRouter()
+
     const initialFormState = {
         name: '',
         quantity: '',
@@ -16,17 +17,20 @@ const Page = () => {
     const [isDropdown, setIsDropdown] = useState(false);
     const [loading, setLoading] = useState(false);
 const [product,displayproduct] = useState('')
+    useEffect(() => {
+        const token = localStorage.getItem('token');
+
+        if (!token) {
+            router.push('/components/Login');
+        }
+
+    }, []);
+
+
     const addProduct = async (e) => {
-        const token = localStorage.getItem('token')
+
+        
         e.preventDefault();
-        useEffect(()=>{
-            if(!token){
-             router.push('/Login')
-            }
-            
-
-        },[])
-
         try {
             const response = await fetch('/apis/mongo', {
                 method: 'POST',
@@ -75,7 +79,11 @@ const [product,displayproduct] = useState('')
         }
     };
 
-    const onChange = (e) => {
+    const loggout = () => {
+        localStorage.removeItem('token');
+        router.push('/components/Login');  // Redirect to login page after logout
+    }
+        const onChange = (e) => {
         setProductForm({ ...productForm, [e.target.name]: e.target.value });
     };
 
@@ -149,7 +157,7 @@ setLoading(false)
 
     return (
         <>
-            <Headers />
+            <Headers logout={loggout} />
             <div className="container  mx-auto p-4">
                 <h1 className="text-3xl font-bold text-gray-800 mb-6">Add a Product</h1>
                 <div className='text-green-600 text-center'> {product} </div>
