@@ -23,7 +23,8 @@ try {
         credentials: 'include' // Include credentials in the request
 });
     const result = await response.json();
-    console.log(result)
+    localStorage.setItem('token',result.authtoken)
+
     if (response.ok && !result.errors ) {
         console.log('your have logged in successefully')
 
