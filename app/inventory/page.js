@@ -2,14 +2,9 @@
 import React, { useEffect, useState } from 'react';
 import Headers from '../components/Headers/page';
 import { useRouter } from 'next/navigation';
-<<<<<<< HEAD
 
 const Page = () => {
     const router = useRouter();
-=======
-const Page = () => {
-    const router =  useRouter()
->>>>>>> 855b3838141ebb140144301ebeb2420d47c350aa
 
     const initialFormState = {
         name: '',
@@ -23,7 +18,6 @@ const Page = () => {
     const [query, setQuery] = useState('');
     const [isDropdown, setIsDropdown] = useState(false);
     const [loading, setLoading] = useState(false);
-<<<<<<< HEAD
     const [product, displayProduct] = useState('');
 
     useEffect(() => {
@@ -34,22 +28,6 @@ const Page = () => {
     }, []);
 
     const addProduct = async (e) => {
-=======
-const [product,displayproduct] = useState('')
-    useEffect(() => {
-        const token = localStorage.getItem('token');
-
-        if (!token) {
-            router.push('/components/Login');
-        }
-
-    }, []);
-
-
-    const addProduct = async (e) => {
-
-        
->>>>>>> 855b3838141ebb140144301ebeb2420d47c350aa
         e.preventDefault();
         try {
             const response = await fetch('/apis/mongo', {
@@ -92,22 +70,16 @@ const [product,displayproduct] = useState('')
 
     const loggout = () => {
         localStorage.removeItem('token');
-<<<<<<< HEAD
         router.push('/components/Login');
     };
 
     const onChange = (e) => {
-=======
-        router.push('/components/Login');  // Redirect to login page after logout
-    }
-        const onChange = (e) => {
->>>>>>> 855b3838141ebb140144301ebeb2420d47c350aa
         setProductForm({ ...productForm, [e.target.name]: e.target.value });
     };
 
     useEffect(() => {
         fetchStock();
-    }, [loading]);
+    }, []);
 
     useEffect(() => {
         if (query.length < 3) {
@@ -158,7 +130,7 @@ const [product,displayproduct] = useState('')
         setStock(newStock);
         setLoading(true);
 
-        const response = await fetch('/apis/update', {
+        await fetch('/apis/update', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ Action, name, initialQuantity })
@@ -170,15 +142,9 @@ const [product,displayproduct] = useState('')
     return (
         <>
             <Headers logout={loggout} />
-<<<<<<< HEAD
             <div className="container mx-auto p-4">
                 <h1 className="text-2xl md:text-3xl font-bold text-gray-800 mb-6">Add a Product</h1>
                 <div className="text-green-600 text-center">{product}</div>
-=======
-            <div className="container  mx-auto p-4">
-                <h1 className="text-3xl font-bold text-gray-800 mb-6">Add a Product</h1>
-                <div className='text-green-600 text-center'> {product} </div>
->>>>>>> 855b3838141ebb140144301ebeb2420d47c350aa
 
                 <h1 className="text-xl md:text-3xl font-bold text-gray-800 mb-6 flex flex-col sm:flex-row items-center">
                     Search a Product
@@ -311,31 +277,10 @@ const [product,displayproduct] = useState('')
                         Add Product
                     </button>
                 </form>
-
-                <h1 className="text-2xl md:text-3xl font-bold text-gray-800 mb-6">Stock</h1>
-                <div className="overflow-x-auto">
-                    <table className="table-auto w-full border">
-                        <thead>
-                            <tr className="bg-gray-200">
-                                <th className="px-4 py-2">Product</th>
-                                <th className="px-4 py-2">Quantity</th>
-                                <th className="px-4 py-2">Price</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {stock.map((item) => (
-                                <tr key={item._id} className="border-b">
-                                    <td className="px-4 py-2">{item.name}</td>
-                                    <td className="px-4 py-2">{item.quantity}</td>
-                                    <td className="px-4 py-2">₹{item.price}</td>
-                                </tr>
-                            ))}
-                        </tbody>
-                    </table>
-                </div>
             </div>
         </>
     );
 };
 
 export default Page;
+
