@@ -2,9 +2,14 @@
 import React, { useEffect, useState } from 'react';
 import Headers from '../components/Headers/page';
 import { useRouter } from 'next/navigation';
+<<<<<<< HEAD
 
 const Page = () => {
     const router = useRouter();
+=======
+const Page = () => {
+    const router =  useRouter()
+>>>>>>> 855b3838141ebb140144301ebeb2420d47c350aa
 
     const initialFormState = {
         name: '',
@@ -18,6 +23,7 @@ const Page = () => {
     const [query, setQuery] = useState('');
     const [isDropdown, setIsDropdown] = useState(false);
     const [loading, setLoading] = useState(false);
+<<<<<<< HEAD
     const [product, displayProduct] = useState('');
 
     useEffect(() => {
@@ -28,6 +34,22 @@ const Page = () => {
     }, []);
 
     const addProduct = async (e) => {
+=======
+const [product,displayproduct] = useState('')
+    useEffect(() => {
+        const token = localStorage.getItem('token');
+
+        if (!token) {
+            router.push('/components/Login');
+        }
+
+    }, []);
+
+
+    const addProduct = async (e) => {
+
+        
+>>>>>>> 855b3838141ebb140144301ebeb2420d47c350aa
         e.preventDefault();
         try {
             const response = await fetch('/apis/mongo', {
@@ -70,10 +92,16 @@ const Page = () => {
 
     const loggout = () => {
         localStorage.removeItem('token');
+<<<<<<< HEAD
         router.push('/components/Login');
     };
 
     const onChange = (e) => {
+=======
+        router.push('/components/Login');  // Redirect to login page after logout
+    }
+        const onChange = (e) => {
+>>>>>>> 855b3838141ebb140144301ebeb2420d47c350aa
         setProductForm({ ...productForm, [e.target.name]: e.target.value });
     };
 
@@ -142,9 +170,15 @@ const Page = () => {
     return (
         <>
             <Headers logout={loggout} />
+<<<<<<< HEAD
             <div className="container mx-auto p-4">
                 <h1 className="text-2xl md:text-3xl font-bold text-gray-800 mb-6">Add a Product</h1>
                 <div className="text-green-600 text-center">{product}</div>
+=======
+            <div className="container  mx-auto p-4">
+                <h1 className="text-3xl font-bold text-gray-800 mb-6">Add a Product</h1>
+                <div className='text-green-600 text-center'> {product} </div>
+>>>>>>> 855b3838141ebb140144301ebeb2420d47c350aa
 
                 <h1 className="text-xl md:text-3xl font-bold text-gray-800 mb-6 flex flex-col sm:flex-row items-center">
                     Search a Product
