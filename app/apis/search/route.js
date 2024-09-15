@@ -34,6 +34,14 @@ export async function GET(request) {
     if (!q || typeof q !== 'string' || q.trim() === '') {
         return NextResponse.json({ error: 'Query parameter "q" is required and should be a non-empty string' }, { status: 400 }); // Bad Request
     }
+/*1. Create or Update Policy Pages
+If you don't already have dedicated pages for your policies, you'll need to create them. Here's how:
+
+Terms and Conditions: Create a page named terms-and-conditions.js.
+Privacy Policy: Create a page named privacy-policy.js.
+Refund and Cancellation Policy: Create a page named refund-policy.js.
+Shipping Policy: Create a page named shipping-policy.js.
+Contact Us: Create a page named contact-us.js.*/
 
     try {
         const client = await connectToDatabase();
