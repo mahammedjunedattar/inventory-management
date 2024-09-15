@@ -25,10 +25,7 @@ try {
 });
     const result = await response.json();
     localStorage.setItem('token',result.authtoken)
-<<<<<<< HEAD
-    console.log(result.errors)
-=======
->>>>>>> 855b3838141ebb140144301ebeb2420d47c350aa
+
     if (response.ok && !result.errors ) {
         console.log('your accout has created')
 
