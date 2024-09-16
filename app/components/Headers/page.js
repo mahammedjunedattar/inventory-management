@@ -16,7 +16,7 @@ const Headers = ({logout}) => {
           <nav className="md:ml-auto flex flex-wrap items-center text-base justify-center">
             <ul className="flex space-x-6">
               <li>
-                <Link href="/Contactus" className="hover:text-indigo-400 transition duration-300">
+                <Link href="/contactus" className="hover:text-indigo-400 transition duration-300">
                   Contact Us
                 </Link>
               </li>
@@ -26,7 +26,7 @@ const Headers = ({logout}) => {
                 </Link>
               </li>
               <li>
-                <Link href="/terms" className="hover:text-indigo-400 transition duration-300">
+                <Link href="/Termsandconditions" className="hover:text-indigo-400 transition duration-300">
                   Terms & Conditions
                 </Link>
               </li>
