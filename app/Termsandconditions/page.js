@@ -5,7 +5,7 @@ const Termsandconditions = () => {
     <div className="container mx-auto p-8">
       <h1 className="text-4xl font-bold mb-4">Terms and Conditions</h1>
       
-      <p>Welcome to [Your Website Name]. These Terms and Conditions outline the rules and regulations for the use of our website, [Your Website URL]. By accessing or using this website, you agree to comply with and be bound by these terms.</p>
+      <p>Welcome to [Your Website Name]. These Terms and Conditions outline the rules and regulations for the use of our website, manage your inventory] By accessing or using this website, you agree to comply with and be bound by these terms.</p>
       
       <h2 className="text-2xl font-semibold mt-6 mb-2">1. User Responsibilities</h2>
       <p>You are responsible for maintaining the confidentiality of your account information and for all activities that occur under your account. You agree to notify us immediately of any unauthorized use of your account.</p>
